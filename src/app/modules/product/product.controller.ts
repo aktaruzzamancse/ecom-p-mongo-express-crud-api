@@ -30,7 +30,14 @@ const createProduct = async (req: Request, res: Response) => {
 
 const getAllProducts = async (req: Request, res: Response) => {
   try {
-    const result = await ProductServices.getAllProducts();
+    let result = {};
+    if (req.query?.searchTerm) {
+      result = await ProductServices.getAllProducts(
+        req.query.searchTerm as string
+      );
+    } else {
+      result = await ProductServices.getAllProducts(null);
+    }
 
     res.status(200).json({
       success: true,
@@ -98,6 +105,7 @@ const updateProduct = async (req: Request, res: Response) => {
 
     //checking isDeleted
     let userResult = await ProductServices.getSingleProduct(productId);
+
     if (!userResult) {
       res.status(500).json({
         success: false,
