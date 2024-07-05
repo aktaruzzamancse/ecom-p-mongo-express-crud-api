@@ -87,38 +87,44 @@ const getSingleProduct = async (req: Request, res: Response) => {
   }
 };
 
-const updateUser = async (req: Request, res: Response) => {
+const updateProduct = async (req: Request, res: Response) => {
   try {
     const product = req.body;
-    //User vaildation using Zod
+    //Product vaildation using Zod
 
     const productId = req.params.productId;
 
     const zodParseData = productVaildationSchema.parse(product);
 
-    //Calling Createuser Service
+    //checking isDeleted
+    let userResult = await ProductServices.getSingleProduct(productId);
+    if (!userResult) {
+      res.status(500).json({
+        success: false,
+        massage: "Product deleted",
+        data: null,
+      });
+    }
+
+    //Calling Createproduct Service
     const result = await ProductServices.updateSingleProduct(
       productId,
       zodParseData
     );
 
-    //Get a user data
-    const userResult = await ProductServices.getSingleProduct(productId);
+    //Get a product data
+    userResult = await ProductServices.getSingleProduct(productId);
     //send response
 
     res.status(200).json({
       success: true,
-      massage: "User updated successfully!",
+      massage: "Product updated successfully!",
       data: userResult,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      massage: "User not found",
-      error: {
-        code: 404,
-        description: "User not found!",
-      },
+      massage: "Product not found",
     });
   }
 };
@@ -127,4 +133,5 @@ export const ProductControllers = {
   getAllProducts,
   deleteSingleProduct,
   getSingleProduct,
+  updateProduct,
 };

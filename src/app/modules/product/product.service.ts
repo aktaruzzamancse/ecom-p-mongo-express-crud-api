@@ -18,10 +18,10 @@ const deleteSingleProduct = async (productId: string) => {
 };
 
 const getSingleProduct = async (productId: string) => {
-  const result = await ProductModel.findOne(
-    { _id: productId },
-    { isDeleted: false }
-  );
+  const result = await ProductModel.findOne({
+    _id: productId,
+    isDeleted: false,
+  });
   return result;
 };
 
