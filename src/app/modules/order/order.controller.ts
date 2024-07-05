@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { OrderServices } from "./order.service";
+import { ProductServices } from "../product/product.service";
 import orderVaildationSchema from "./order.zod.validation";
 
 const createOrder = async (req: Request, res: Response) => {
@@ -8,6 +9,23 @@ const createOrder = async (req: Request, res: Response) => {
     //Order vaildation using Zod
 
     const zodParseData = orderVaildationSchema.parse(order);
+
+    const productId = order?.productId;
+    console.log(productId);
+
+    //Calling getSingleProduct Service
+    const proresult = await ProductServices.getSingleProduct(productId);
+    if (proresult) {
+      const reqQty = order.quantity;
+      if (reqQty > proresult?.inventory) {
+        res.status(500).json({
+          success: false,
+          massage: "Insufficient quantity available in inventory",
+        });
+      }
+    }
+
+    console.log(proresult);
 
     //Calling Createorder Service
     const result = await OrderServices.Createorder(zodParseData);
