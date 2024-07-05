@@ -1,4 +1,3 @@
-import { parse } from "dotenv";
 import { Product } from "./product.interface";
 import { ProductModel } from "./product.model";
 

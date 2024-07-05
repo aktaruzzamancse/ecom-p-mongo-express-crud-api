@@ -1,4 +1,3 @@
-import { Schema, model, connect } from "mongoose";
 export type inventory = {
   quantity: number;
   inStock: boolean;

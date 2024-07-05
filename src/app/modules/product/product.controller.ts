@@ -30,15 +30,9 @@ const createProduct = async (req: Request, res: Response) => {
 
 const getAllProducts = async (req: Request, res: Response) => {
   try {
-    let result = {};
-    if (req.query?.searchTerm) {
-      result = await ProductServices.getAllProducts(
-        req.query.searchTerm as string
-      );
-    } else {
-      result = await ProductServices.getAllProducts(null);
-    }
-
+    const result = await ProductServices.getAllProducts(
+      req.query?.searchTerm ? req.query.searchTerm : null
+    );
     res.status(200).json({
       success: true,
       massage: "Products fetched successfully!",
@@ -56,7 +50,7 @@ const deleteSingleProduct = async (req: Request, res: Response) => {
     const productId = req.params.productId;
 
     //Calling getSingleProduct Service
-    const result = await ProductServices.deleteSingleProduct(productId);
+    await ProductServices.deleteSingleProduct(productId);
 
     //send response
     res.status(200).json({
@@ -115,10 +109,7 @@ const updateProduct = async (req: Request, res: Response) => {
     }
 
     //Calling Createproduct Service
-    const result = await ProductServices.updateSingleProduct(
-      productId,
-      zodParseData
-    );
+    await ProductServices.updateSingleProduct(productId, zodParseData);
 
     //Get a product data
     userResult = await ProductServices.getSingleProduct(productId);
