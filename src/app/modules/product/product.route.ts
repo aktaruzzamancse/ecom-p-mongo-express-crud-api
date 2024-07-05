@@ -3,7 +3,8 @@ import { ProductControllers } from "./product.controller";
 
 const router = express.Router();
 
-//ProudctCreate Controller func
+//Proudcts route
 
 router.post("/", ProductControllers.createProduct);
+router.get("/", ProductControllers.getAllProducts);
 export const ProductRouters = router;

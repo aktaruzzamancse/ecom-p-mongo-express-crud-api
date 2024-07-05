@@ -28,6 +28,24 @@ const createProduct = async (req: Request, res: Response) => {
   }
 };
 
+const getAllProducts = async (req: Request, res: Response) => {
+  try {
+    const result = await ProductServices.getAllProducts();
+
+    res.status(200).json({
+      success: true,
+      massage: "Products fetched successfully!",
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      massage: "Products data not found",
+    });
+  }
+};
+
 export const ProductControllers = {
   createProduct,
+  getAllProducts,
 };
