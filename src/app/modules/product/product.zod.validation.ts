@@ -19,11 +19,12 @@ const variantsVaildationSchema = z.object({
 const productVaildationSchema = z.object({
   name: z.string(),
   description: z.string(),
-  price:z.number(),
+  price: z.number(),
   category: z.string(),
   tags: z.array(z.string()),
   variants: z.array(variantsVaildationSchema),
   inventory: inventoryVaildationSchema,
+  isDeleted: z.boolean().default(false),
 });
 
 export default productVaildationSchema;

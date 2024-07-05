@@ -44,8 +44,87 @@ const getAllProducts = async (req: Request, res: Response) => {
     });
   }
 };
+const deleteSingleProduct = async (req: Request, res: Response) => {
+  try {
+    const productId = req.params.productId;
 
+    //Calling getSingleProduct Service
+    const result = await ProductServices.deleteSingleProduct(productId);
+
+    //send response
+    res.status(200).json({
+      success: true,
+      massage: "Product deleted successfully!",
+      data: null,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      massage: "Product not found",
+    });
+  }
+};
+
+const getSingleProduct = async (req: Request, res: Response) => {
+  try {
+    const productId = req.params.productId;
+
+    //Calling getSingleProduct Service
+    const result = await ProductServices.getSingleProduct(productId);
+
+    //send response
+    res.status(200).json({
+      success: true,
+      massage: "Product fetched successfully!",
+      data: result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      massage: "Product not found",
+    });
+  }
+};
+
+const updateUser = async (req: Request, res: Response) => {
+  try {
+    const product = req.body;
+    //User vaildation using Zod
+
+    const productId = req.params.productId;
+
+    const zodParseData = productVaildationSchema.parse(product);
+
+    //Calling Createuser Service
+    const result = await ProductServices.updateSingleProduct(
+      productId,
+      zodParseData
+    );
+
+    //Get a user data
+    const userResult = await ProductServices.getSingleProduct(productId);
+    //send response
+
+    res.status(200).json({
+      success: true,
+      massage: "User updated successfully!",
+      data: userResult,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      massage: "User not found",
+      error: {
+        code: 404,
+        description: "User not found!",
+      },
+    });
+  }
+};
 export const ProductControllers = {
   createProduct,
   getAllProducts,
+  deleteSingleProduct,
+  getSingleProduct,
 };
