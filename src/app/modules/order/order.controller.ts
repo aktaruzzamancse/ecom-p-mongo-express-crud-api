@@ -16,8 +16,8 @@ const createOrder = async (req: Request, res: Response) => {
     //Calling getSingleProduct Service
     const proresult = await ProductServices.getSingleProduct(productId);
     if (proresult) {
-      const reqQty = order.quantity;
-      if (reqQty > proresult?.inventory) {
+      const reqQty = zodParseData.quantity;
+      if (reqQty > proresult?.inventory.quantity) {
         res.status(500).json({
           success: false,
           massage: "Insufficient quantity available in inventory",

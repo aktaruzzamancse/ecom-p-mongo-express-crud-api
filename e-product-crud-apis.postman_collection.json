@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "8f032cb6-1f20-44fd-87d5-e7be9cf313b8",
+		"name": "e-product-crud-apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3437092"
+	},
+	"item": [
+		{
+			"name": "Create product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 999,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"Color\",\n            \"value\": \"Midnight Blue\"\n        },\n        {\n            \"type\": \"Storage Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/products",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "bas",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a New Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"level2@programming-hero.com\",\n    \"productId\": \"5fd67e890b60c903cd8544a3\",\n    \"price\": 999,\n    \"quantity\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/orders",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "bas",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a List of All Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 999,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"Color\",\n            \"value\": \"Midnight Blue\"\n        },\n        {\n            \"type\": \"Storage Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/products",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve All Orders",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 999,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"Color\",\n            \"value\": \"Midnight Blue\"\n        },\n        {\n            \"type\": \"Storage Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/orders",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Orders by User Email",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 999,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"Color\",\n            \"value\": \"Midnight Blue\"\n        },\n        {\n            \"type\": \"Storage Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/orders?email=level2@programming-hero.com",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "level2@programming-hero.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search a product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 999,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"Color\",\n            \"value\": \"Midnight Blue\"\n        },\n        {\n            \"type\": \"Storage Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/products?searchTerm=iphone",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"products"
+					],
+					"query": [
+						{
+							"key": "searchTerm",
+							"value": "iphone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a Specific Product by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 999,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"Color\",\n            \"value\": \"Midnight Blue\"\n        },\n        {\n            \"type\": \"Storage Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/products/6687e76a9cf4c4d79aa4900a",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"6687e76a9cf4c4d79aa4900a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product Information",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13 update\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 1000,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"style\",\n            \"value\": \" Blue\"\n        },\n        {\n            \"type\": \" Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/products/6687e7a39cf4c4d79aa49015",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"6687e7a39cf4c4d79aa49015"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"iPhone 13\",\n    \"description\": \"A sleek and powerful smartphone with cutting-edge features.\",\n    \"price\": 999,\n    \"category\": \"Electronics\",\n    \"tags\": [\"smartphone\", \"Apple\", \"iOS\"],\n    \"variants\": [\n        {\n            \"type\": \"Color\",\n            \"value\": \"Midnight Blue\"\n        },\n        {\n            \"type\": \"Storage Capacity\",\n            \"value\": \"256GB\"\n        }\n    ],\n    \"inventory\": {\n        \"quantity\": 50,\n        \"inStock\": true\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/products/6687e7a39cf4c4d79aa49015",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"products",
+						"6687e7a39cf4c4d79aa49015"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:500",
+			"type": "string"
+		}
+	]
+}

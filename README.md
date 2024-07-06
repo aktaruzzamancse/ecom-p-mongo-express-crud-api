@@ -1,4 +1,4 @@
-<h1>Mongoose Express CRUD Mastery Apis</h1>
+<h1>Mongoose Express CRUD Mastery Apis v2</h1>
 
 <h2>Getting Started</h2>
 <p><b>Prerequisites</b></p>
@@ -10,7 +10,6 @@
 <div><pre><code>NODE_ENV=
 PORT=
 DATABASE_URL=
-BCRYPT_SALT_ROUNDS=</code>
 </pre>
 </div>
 <p><b>Run the project</b></p>
